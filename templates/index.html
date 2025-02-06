@@ -4,31 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI Design Examples</title>
+    <title>HCI Design Landing Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>Human-Computer Interaction (HCI) Design Examples</h1>
-            <p>Compare good vs bad design for better HCI understanding.</p>
+            <h1>HCI Design Examples</h1>
+            <p>Select an option below:</p>
         </header>
 
-        <div class="content">
-            <div class="design-section">
-                <h2>Good Design</h2>
-                <img src="{{ url_for('static', filename='images/good_design.jpg') }}" alt="Good Design Example">
-                <p>This is an example of a good design that follows HCI principles like clarity, consistency, and ease
-                    of use.</p>
-            </div>
-
-            <div class="design-section">
-                <h2>Bad Design</h2>
-                <img src="{{ url_for('static', filename='images/bad_design.jpg') }}" alt="Bad Design Example">
-                <p>This is an example of a bad design where usability principles are violated (e.g., poor navigation,
-                    overwhelming layout).</p>
-            </div>
+        <div class="landing">
+            <a href="{{ url_for('good_design') }}" class="design-link good">Good Design</a>
+            <a href="{{ url_for('bad_design') }}" class="design-link bad">Bad Design</a>
         </div>
 
         <footer>
