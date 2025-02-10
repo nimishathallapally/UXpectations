@@ -8,7 +8,7 @@ def index():
 
 @app.route('/good-design')
 def good_design():
-    return render_template('good/home.html')
+    return render_template('good/design.html')
 
 @app.route('/bad-design')
 def bad_design():
@@ -21,6 +21,10 @@ def login():
 @app.route('/signup')
 def signup():
     return render_template('good/signup.html')
+
+@app.route('/quiz')
+def take_quiz():
+    return render_template('good/quiz.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
