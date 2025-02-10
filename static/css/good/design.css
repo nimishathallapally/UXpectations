@@ -132,17 +132,22 @@ nav ul li {
     display: inline;
 }
 
-nav ul li a {
+nav ul li a, 
+nav ul li button {
     text-decoration: none;
     color: white;
     font-size: 18px;
     font-weight: bold;
     padding: 10px 15px;
     border-radius: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
     transition: background 0.3s ease-in-out;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, 
+nav ul li button:hover {
     background-color: #1a6694;
 }
 
