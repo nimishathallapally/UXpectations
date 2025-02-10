@@ -9,13 +9,43 @@
 <body>
     <div class="signup-container">
         <h2>Sign Up</h2>
-        <form action="#" method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Sign Up</button>
+        <form id="signupForm">
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <input type="text" id="dob" placeholder="Date of Birth (YYYYMMDD)" pattern="\d{8}" required>
+          <button type="submit">Sign Up</button>
         </form>
-        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+        <p>Already have an account? <a href="{{ url_for('bad_login') }}">Login</a></p>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("user")) {
+                alert("Already done signing-up! Redirecting to login...");
+                window.location.href = "/bad-login";
+            }
+
+            document.getElementById("signupForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const dob = document.getElementById("dob").value;
+
+                // Validate DOB format (should be exactly 8 digits)
+                if (!/^\d{8}$/.test(dob)) {
+                    alert("Invalid Date of Birth. Please enter in YYYYMMDD format.");
+                    return;
+                }
+
+                // Store user details in localStorage
+                const user = { email, password, dob };
+                localStorage.setItem("user", JSON.stringify(user));
+
+                alert("Signup Successful! Redirecting to login...");
+                window.location.href = "/bad-login"; 
+            });
+        });
+    </script>
 </body>
 </html>

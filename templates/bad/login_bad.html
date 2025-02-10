@@ -9,12 +9,36 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="#" method="POST">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+        <form id="loginForm">
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+        <p>Don't have an account? <a href="{{ url_for('bad_signup') }}">Sign Up</a></p>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Remove this line to prevent automatic redirection before login
+            // if (localStorage.getItem("user")) {
+            //     window.location.href = "/bad-design"; 
+            // }
+
+            document.getElementById("loginForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const user = JSON.parse(localStorage.getItem("user"));
+
+                if (user && user.email === email && user.password === password) {
+                    alert("Login Successful!");
+                    window.location.href = "/bad-design"; // Redirect only AFTER successful login
+                } else {
+                    alert("Invalid credentials. Please try again.");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

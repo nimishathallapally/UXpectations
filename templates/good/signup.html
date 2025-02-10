@@ -21,6 +21,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (localStorage.getItem("user")) {
+                alert("Already done signing-up! Redirecting to login...");
                 window.location.href = "/good-login";
             }
 
