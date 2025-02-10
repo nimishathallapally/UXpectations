@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Design Examples</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/good/design.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <button class="toggle-mode" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button> -->
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="{{ url_for('take_quiz') }}">Take the Quiz</a></li>
+                <li><a href="https://www.nngroup.com/articles/" target="_blank">Learn More</a></li>
+            </ul>
+            <div class="toggle-container">
+                <button class="toggle-mode" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+            </div>
+        </nav>
+        <header>
+            <h1>Human-Computer Interaction (HCI) Design Examples</h1>
+            <p>Compare good vs bad design for better HCI understanding.</p>
+            <button onclick="logout()">Logout</button>
+        </header>
+
+       
+
+        <section class="intro">
+            <h2>What is HCI?</h2>
+            <p>Human-Computer Interaction (HCI) focuses on designing interfaces that enhance user experience by making applications easy to use, accessible, and efficient.</p>
+        </section>
+
+        <section class="principles">
+            <h2>HCI Usability Principles</h2>
+            <ul>
+                <li><strong>Visibility:</strong> The user should always know what is happening.</li>
+                <li><strong>Feedback:</strong> Provide clear responses to user actions.</li>
+                <li><strong>Efficiency:</strong> Interfaces should minimize user effort.</li>
+                <li><strong>Consistency:</strong> Similar actions should have similar outcomes.</li>
+            </ul>
+        </section>
+
+        <div class="content">
+            <div class="design-section">
+                <h2>Good Design</h2>
+                <img src="{{ url_for('static', filename='images/good_design.jpg') }}" alt="Good Design Example">
+                <p>A good design follows HCI principles such as clarity, consistency, and user-friendliness.</p>
+            </div>
+
+            <div class="design-section">
+                <h2>Bad Design</h2>
+                <img src="{{ url_for('static', filename='images/bad_design.jpg') }}" alt="Bad Design Example">
+                <p>A bad design lacks usability principles, making navigation difficult and reducing efficiency.</p>
+            </div>
+        </div>
+
+        <section class="accessibility">
+            <h2>Accessibility in HCI</h2>
+            <p>HCI design should be inclusive, considering users with disabilities. Key factors include:</p>
+            <ul>
+                <li>High color contrast for readability.</li>
+                <li>Keyboard navigation support.</li>
+                <li>Alternative text for images.</li>
+            </ul>
+        </section>
+
+        <section class="comparison">
+            <h2>Comparison: Good vs. Bad Design</h2>
+            <table>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Good Design</th>
+                    <th>Bad Design</th>
+                </tr>
+                <tr>
+                    <td>Navigation</td>
+                    <td>Easy and intuitive</td>
+                    <td>Confusing and cluttered</td>
+                </tr>
+                <tr>
+                    <td>Readability</td>
+                    <td>Clear fonts and contrast</td>
+                    <td>Small fonts, poor contrast</td>
+                </tr>
+                <tr>
+                    <td>Responsiveness</td>
+                    <td>Works on all devices</td>
+                    <td>Poor mobile compatibility</td>
+                </tr>
+                <tr>
+                    <td>Feedback</td>
+                    <td>Provides clear user feedback</td>
+                    <td>No indication of errors or actions</td>
+                </tr>
+            </table>
+        </section>
+
+        <footer>
+            <p>Designed for educational purposes. HCI Best Practices and Mistakes.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function logout() {
+        localStorage.removeItem("user");
+        alert("Logged out successfully!");
+        window.location.href = "/login";
+    }
+</script>
