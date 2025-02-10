@@ -25,17 +25,16 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
 }
 
 /* Navbar */
 nav {
-    position: absolute;
-    top: 20px;
-    left: 50px; /* Keeping title on the left */
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 90%;
+    padding: 20px;
 }
 
 /* Website title */
@@ -43,34 +42,20 @@ nav {
     font-size: 24px;
     font-weight: bold;
     color: white;
-}
-
-/* Moving navigation links (Login & Sign Up) to bottom-left */
-.nav-links {
     position: absolute;
-    top: 450px; /* Moves it to the bottom */
-    left: 650px;  /* Keeps it aligned to the left */
+    top: 20px;
+    left: 50px;
 }
-
-.nav-links a {
-    color: rgba(255, 255, 255, 0.295);
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0 10px;
-    transition: color 0.3s ease-in-out;
-}
-/*
-.nav-links a:hover {
-    color: #f39c12;
-}*/
 
 /* Main content */
 .content {
-    max-width: 700px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: white;
-    margin-top: -50px;
 }
 
 /* Title Styling */
@@ -89,7 +74,32 @@ nav {
     font-weight: 300;
     opacity: 0.9;
     animation: fadeIn 1.5s ease-in-out;
+    margin-bottom: 20px;
 }
+
+/* Centered navigation links below paragraph */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Styled buttons */
+.nav-links a {
+    /* background-color: #f39c12; */
+    color: rgb(124, 121, 121);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 1px 24px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* .nav-links a:hover {
+    background: #e67e22;
+} */
 
 /* Animations */
 @keyframes fadeIn {
