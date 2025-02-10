@@ -30,8 +30,11 @@ def signup():
     return render_template('good/signup.html')
 
 @app.route('/quiz')
-def take_quiz():
+def take_quiz_good():
     return render_template('good/quiz.html')
+@app.route('/bad-quiz')
+def take_quiz_bad():
+    return render_template('bad/quiz.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
