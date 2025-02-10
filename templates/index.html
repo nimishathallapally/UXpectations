@@ -16,14 +16,29 @@
         </header>
 
         <div class="landing">
-            <a href="{{ url_for('good_design') }}" class="design-link good">Good Design</a>
-            <a href="{{ url_for('bad_design') }}" class="design-link bad">Bad Design</a>
+            <a id="goodDesignLink" class="design-link good">Good Design</a>
+            <a id="badDesignLink" class="design-link bad">Bad Design</a>
         </div>
 
         <footer>
             <p>Designed for educational purposes. HCI Best Practices and Mistakes.</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const user = JSON.parse(localStorage.getItem("user"));
+
+            if (user) {
+                document.getElementById("goodDesignLink").href = "/good-design";
+                document.getElementById("badDesignLink").href = "/bad-design";
+            } else {
+                document.getElementById("goodDesignLink").href = "/good-home";
+                document.getElementById("badDesignLink").href = "/bad-home";
+            }
+        });
+    </script>
+
 </body>
 
 </html>

@@ -12,34 +12,37 @@
         <form id="signupForm">
           <input type="email" id="email" placeholder="Email" required>
           <input type="password" id="password" placeholder="Password" required>
+          <select id="designType">
+              <option value="good">Good Design</option>
+              <option value="bad">Bad Design</option>
+          </select>
           <button type="submit">Sign Up</button>
       </form>
         <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("user")) {
+                const user = JSON.parse(localStorage.getItem("user"));
+                window.location.href = user.designType === "good" ? "/good-design" : "/bad-design";
+            }
+
+            document.getElementById("signupForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const designType = document.getElementById("designType").value;
+
+                const user = { email, password, designType };
+
+                localStorage.setItem("user", JSON.stringify(user));
+
+                alert("Signup Successful!");
+                window.location.href = designType === "good" ? "/good-design" : "/bad-design";
+            });
+        });
+    </script>
 </body>
 </html>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      // Prevent logged-in users from accessing the signup page
-      if (localStorage.getItem("user")) {
-          const user = JSON.parse(localStorage.getItem("user"));
-          window.location.href = "/good-design";
-      }
-
-      document.getElementById("signupForm").addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent page refresh
-
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-
-          const user = { email, password};
-
-          // Store user details in localStorage
-          localStorage.setItem("user", JSON.stringify(user));
-
-          alert("Signup Successful!");
-          window.location.href = "/good-design";
-      });
-  });
-</script>
