@@ -25,7 +25,7 @@
         <header>
             <h1>Human-Computer Interaction (HCI) Design Examples</h1>
             <p>Compare good vs bad design for better HCI understanding.</p>
-            
+            <button onclick="logout()">Logout</button>
         </header>
 
        
@@ -107,3 +107,11 @@
 </body>
 
 </html>
+
+<script>
+    function logout() {
+        localStorage.removeItem("user");
+        alert("Logged out successfully!");
+        window.location.href = "/login";
+    }
+</script>
