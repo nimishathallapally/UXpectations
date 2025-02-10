@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HCI Quiz</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/good/design.css') }}">
-    <script src="{{ url_for('static', filename='js/good/script.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/bad/script.js') }}" defer></script>
 </head>
 
 <body>
@@ -115,20 +115,20 @@
     
                 if (answer.value === correctAnswers[i]) {
                     feedback.innerHTML = `✅ Correct! ${explanations[i]}`;
-                    feedback.style.color="green";
+                    feedback.style.color="red";
                 } else {
                     feedback.innerHTML = `❌ Incorrect. The correct answer is ${correctAnswers[i].toUpperCase()}) ${explanations[i]}`;
-                    feedback.style.color="red";
+                    feedback.style.color="green";
                 }
             }
     
             if (unanswered) {
-                alert("Please answer all questions before submitting.");
+                // alert("Please answer all questions before submitting.");
                 return;
             }
     
             // Scroll to top after submission
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
     
