@@ -6,21 +6,29 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/good-home')
+def good_home():
+    return render_template('good/home.html')
+@app.route('/bad-home')
+def bad_home():
+    return render_template('bad/home_bad.html')
+
+
 @app.route('/good-design')
 def good_design():
-    return render_template('good/home.html')
-
+    return render_template('good/design.html')
 @app.route('/bad-design')
 def bad_design():
-    return render_template('bad/home_bad.html')
+    return render_template('bad/design_bad.html')
+
 
 @app.route('/login')
 def login():
     return render_template('good/login.html')
-
 @app.route('/signup')
 def signup():
     return render_template('good/signup.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
