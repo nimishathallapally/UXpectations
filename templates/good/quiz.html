@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/good/design.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>HCI Quiz</h1>
+            <p>Test your knowledge on Human-Computer Interaction.</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('good_design') }}">Home</a></li>
+                <li><a href="#">Quiz</a></li>
+                <li><a href="https://www.nngroup.com/articles/" target="_blank">Learn More</a></li>
+            </ul>
+            <div class="toggle-container">
+                <button class="toggle-mode" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+            </div>
+        </nav>
+
+        <section class="quiz left">
+            <h2>Question 1</h2>
+            <p>What is the most important factor in a good user interface?</p>
+            <div class="quiz-options">
+                <label><input type="radio" name="q1" value="a"> A) Clear navigation</label>
+                <label><input type="radio" name="q1" value="b"> B) Lots of colors</label>
+                <label><input type="radio" name="q1" value="c"> C) Complex layout</label>
+            </div>
+            <p class="quiz-feedback" id="quiz-feedback1"></p>
+        </section>
+
+        <section class="quiz right">
+            <h2>Question 2</h2>
+            <p>Which principle ensures that users can easily recover from errors?</p>
+            <div class="quiz-options">
+                <label><input type="radio" name="q2" value="d"> A) Accessibility</label>
+                <label><input type="radio" name="q2" value="e"> B) Error tolerance</label>
+                <label><input type="radio" name="q2" value="f"> C) Minimalist design</label>
+            </div>
+            <p class="quiz-feedback" id="quiz-feedback2"></p>
+        </section>
+
+        <section class="quiz left">
+            <h2>Question 3</h2>
+            <p>Which of the following improves usability in HCI?</p>
+            <div class="quiz-options">
+                <label><input type="radio" name="q3" value="g"> A) Consistent layout</label>
+                <label><input type="radio" name="q3" value="h"> B) Excessive animations</label>
+                <label><input type="radio" name="q3" value="i"> C) Hidden menus</label>
+            </div>
+            <p class="quiz-feedback" id="quiz-feedback3"></p>
+        </section>
+        
+        <section class="quiz right">
+            <h2>Question 4</h2>
+            <p>Why is feedback important in UI design?</p>
+            <div class="quiz-options">
+                <label><input type="radio" name="q4" value="j"> A) It keeps users engaged</label>
+                <label><input type="radio" name="q4" value="k"> B) It helps users understand their actions</label>
+                <label><input type="radio" name="q4" value="l"> C) It makes the interface look complex</label>
+            </div>
+            <p class="quiz-feedback" id="quiz-feedback4"></p>
+        </section>
+        
+        <section class="quiz left">
+            <h2>Question 5</h2>
+            <p>Which design approach helps users with disabilities?</p>
+            <div class="quiz-options">
+                <label><input type="radio" name="q5" value="m"> A) High contrast text</label>
+                <label><input type="radio" name="q5" value="n"> B) Small clickable elements</label>
+                <label><input type="radio" name="q5" value="o"> C) Complicated navigation</label>
+            </div>
+            <p class="quiz-feedback" id="quiz-feedback5"></p>
+        </section>
+        
+
+        <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+
+        <footer>
+            <p>Designed for educational purposes. HCI Best Practices and Mistakes.</p>
+        </footer>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            let feedback1 = document.getElementById("quiz-feedback1");
+            let feedback2 = document.getElementById("quiz-feedback2");
+
+            let answer1 = document.querySelector('input[name="q1"]:checked');
+            let answer2 = document.querySelector('input[name="q2"]:checked');
+
+            if (!answer1 || !answer2) {
+                alert("Please answer all questions before submitting.");
+                return;
+            }
+
+            feedback1.innerHTML = answer1.value === 'a' ? "✅ Correct! Clear navigation is key." : "❌ Incorrect. The correct answer is A) Clear navigation.";
+            feedback2.innerHTML = answer2.value === 'e' ? "✅ Correct! Error tolerance helps users recover quickly." : "❌ Incorrect. The correct answer is B) Error tolerance.";
+        }
+    </script>
