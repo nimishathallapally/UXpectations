@@ -13,7 +13,7 @@ def good_design():
 
 @app.route('/bad-design')  # Updated URL path for Bad Design
 def bad_design():
-    return render_template('design.html')  # Keep current page
+    return render_template('home_bad.html')  # Keep current page
 
 if __name__ == "__main__":
     app.run(debug=True)
