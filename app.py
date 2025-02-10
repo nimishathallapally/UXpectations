@@ -40,12 +40,12 @@ def good_signup():
     return render_template('good/signup.html')
 
 
-@app.route('/quiz')
-def take_quiz_good():
+@app.route('/good-quiz')
+def good_take_quiz():
     return render_template('good/quiz.html')
 @app.route('/bad-quiz')
-def take_quiz_bad():
-    return render_template('bad/quiz.html')
+def bad_take_quiz():
+    return render_template('bad/quiz_bad.html')
 
 
 if __name__ == "__main__":
