@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Designs Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <style>
+        body {
+            background: url('{{ url_for("static", filename="images/background.avif") }}') no-repeat center center/cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="title">HCI Designs Website</div>
+            <div class="nav-links">
+                <a href="#">Login</a>
+                <a href="#">Sign Up</a>
+            </div>
+        </nav>
+        <div class="content">
+            <h1>Welcome to HCI Designs</h1>
+            <p>Creating intuitive and user-friendly interfaces</p>
+        </div>
+    </div>
+</body>
+</html>
