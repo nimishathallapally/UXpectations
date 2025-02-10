@@ -12,20 +12,16 @@
         <form id="signupForm">
           <input type="email" id="email" placeholder="Email" required>
           <input type="password" id="password" placeholder="Password" required>
-          <select id="designType">
-              <option value="good">Good Design</option>
-              <option value="bad">Bad Design</option>
-          </select>
+          <input type="text" id="dob" placeholder="Date of Birth (YYYYMMDD)" pattern="\d{8}" required>
           <button type="submit">Sign Up</button>
-      </form>
-        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('good_login') }}">Login</a></p>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (localStorage.getItem("user")) {
-                const user = JSON.parse(localStorage.getItem("user"));
-                window.location.href = user.designType === "good" ? "/good-design" : "/bad-design";
+                window.location.href = "/good-login";
             }
 
             document.getElementById("signupForm").addEventListener("submit", function (event) {
@@ -33,14 +29,20 @@
 
                 const email = document.getElementById("email").value;
                 const password = document.getElementById("password").value;
-                const designType = document.getElementById("designType").value;
+                const dob = document.getElementById("dob").value;
 
-                const user = { email, password, designType };
+                // Validate DOB format (should be exactly 8 digits)
+                if (!/^\d{8}$/.test(dob)) {
+                    alert("Invalid Date of Birth. Please enter in YYYYMMDD format.");
+                    return;
+                }
 
+                // Store user details in localStorage
+                const user = { email, password, dob };
                 localStorage.setItem("user", JSON.stringify(user));
 
-                alert("Signup Successful!");
-                window.location.href = designType === "good" ? "/good-design" : "/bad-design";
+                alert("Signup Successful! Redirecting to login...");
+                window.location.href = "/good-login"; 
             });
         });
     </script>
