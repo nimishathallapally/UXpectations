@@ -97,9 +97,10 @@ nav {
     transition: background 0.3s ease-in-out;
 }
 
-/* .nav-links a:hover {
-    background: #e67e22;
-} */
+.nav-links a:hover {
+    /* background: #e67e22; */
+    cursor: default;
+}
 
 /* Animations */
 @keyframes fadeIn {
